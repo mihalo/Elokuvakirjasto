@@ -1,0 +1,8 @@
+<a href="#/movies/new">Add movie</a><br>
+
+<h1>Movies</h1>
+<ul>
+    <li ng-repeat="movie in movies">
+        {{movie.name}} <button ng-click="removeMovie(movie)">Delete</button>
+    </li>
+</ul>
