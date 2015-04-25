@@ -10,13 +10,19 @@ MyApp.service('FirebaseService', function ($firebase) {
     this.removeMovie = function (movie) {
         movies.$remove(movie);
     };
-    
+
     this.editMovie = function (movie) {
         movies.$save(movie);
     };
 
     this.getMovies = function () {
         return movies;
+    };
+
+    this.getMovie = function (key, done) {
+        movies.$loaded(function () {
+            done(movies.$getRecord(key));
+        });
     };
 
 

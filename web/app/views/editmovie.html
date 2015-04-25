@@ -1,0 +1,19 @@
+<form name="form">
+    Movie: <input type="text" ng-model="name" name="name" required/><br>
+    <div ng-show="form.$submitted || form.name.$touched">
+        <span ng-show="form.name.$error.required">This is not valid name<br></span>
+    </div>
+    Director: <input type="text" ng-model="director" name="director" required/><br>
+    <div ng-show="form.$submitted || form.director.$touched">
+        <span ng-show="form.director.$error.required">This is not valid director<br></span>
+    </div>
+    Year: <input type="text" ng-model="year" name="year" required ng-pattern="/^[0-9]+$/"/><br>
+    <div ng-show="form.$submitted || form.year.$touched">
+        <span ng-show="form.year.$invalid && form.year.$dirty">This is not valid year<br></span>
+    </div>
+    Description <textarea type="text" ng-model="description" name="desc" required/></textarea><br>
+<div ng-show="form.$submitted || form.desc.$touched">
+    <span ng-show="form.desc.$error.required">This is not valid description<br></span>
+</div>
+<input type="submit" value="Submit" ng-click="editMovie()" ng-disabled="form.$invalid" />
+</form> 
